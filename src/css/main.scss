@@ -1,3 +1,28 @@
+// UTILITIES
+
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// http://nicolasgallagher.com/micro-clearfix-hack/
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+// Mantaining fine balance between GTD (getting things done) and code quality
+// Ideally I'd like to put 'utilities' into a separate file but I'm not a webpack expert
+// Easier to keep everything in a single file (so I'm sure it gets bundled properly)
+
 body {
 
 	h1 {
