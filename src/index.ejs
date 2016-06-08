@@ -8,7 +8,6 @@
 </head>
 <body ng-app="app" ng-controller="ctrl">
 
-  {{ message }}
 
   <!-- 
     pressing new game resets the state
@@ -16,21 +15,23 @@
     the moment we select an option the game starts
     case with 2 players - there will be keyboard handlers
   -->
-  <button id="new-game">new game</button>
+  <button ng-click="newGame()">new game</button>
 
   <h3>player 1</h3>
-  <label><input type="radio" name="player1" value="human" checked>Human</label>
+  <label><input type="radio" name="player1" value="human">Human</label>
   <label><input type="radio" name="player1" value="computer">Computer</label>
 
   <div class="cf">
 
-  <!-- 
-    that is a good candidate to create HTML based on data that is available 
-  -->
-  <label><input type="radio" name="player1-choice" value="rock">Rock</label>
-  <label><input type="radio" name="player1-choice" value="paper">Paper</label>
-  <label><input type="radio" name="player1-choice" value="scissors">Scissors</label>
+  <div ng-repeat="gameChoice in gameChoices">
+    <h4>{{ gameChoice.name }}</h4>
+    <a href ng-click="select('player1', gameOption)">
+      <img ng-src="{{gameChoice.img}}">
+    </a>
+  </div>
 
+
+<!--
 
   <h3>player 2</h3>
   <label><input type="radio" name="player2" value="human">Human</label>
@@ -49,7 +50,7 @@
     <div class="player2">Player 2 won</div>
     <div class="draw">It's a draw</div>
   </div>
-
+-->
 
 </body>
 </html>
