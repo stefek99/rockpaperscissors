@@ -18,39 +18,43 @@
   <button ng-click="newGame()">new game</button>
 
   <h3>player 1</h3>
-  <label><input type="radio" name="player1" value="human">Human</label>
+  <label><input type="radio" name="player1" value="human" checked>Human</label>
   <label><input type="radio" name="player1" value="computer">Computer</label>
 
-  <div class="cf">
+  <div class="cf"></div>
 
-  <div ng-repeat="gameChoice in gameChoices">
+  <div class="game-choice" ng-repeat="gameChoice in gameChoices">
     <h4>{{ gameChoice.name }}</h4>
-    <a href ng-click="select('player1', gameOption)">
+    <a href ng-click="select('player1', gameChoice)">
       <img ng-src="{{gameChoice.img}}">
     </a>
   </div>
 
 
-<!--
-
   <h3>player 2</h3>
   <label><input type="radio" name="player2" value="human">Human</label>
   <label><input type="radio" name="player2" value="computer" checked>Computer</label>
 
+  <div class="cf"></div>
+
+  <div class="game-choice" ng-repeat="gameChoice in gameChoices">
+    <h4>{{ gameChoice.name }}</h4>
+    <a href ng-click="select('player2', gameChoice)">
+      <img ng-src="{{gameChoice.img}}">
+    </a>
+  </div>
+
   <div class="cf">
 
-  <label><input type="radio" name="player2-choice" value="rock">Rock</label>
-  <label><input type="radio" name="player2-choice" value="paper">Paper</label>
-  <label><input type="radio" name="player2-choice" value="scissors">Scissors</label>
-
-  <div class="cf">
 
   <div class="result">
-    <div class="player1">Player 1 won</div>
+    <h3>Result</h3>
+    <p>Make your choice to start the game</p>
+<!--     <div class="player1">Player 1 won</div>
     <div class="player2">Player 2 won</div>
-    <div class="draw">It's a draw</div>
+    <div class="draw">It's a draw</div> -->
   </div>
--->
+
 
 </body>
 </html>

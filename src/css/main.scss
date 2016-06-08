@@ -3,16 +3,13 @@ body {
 	h1 {
 		color: white;
 	}
-}
 
+  .game-choice {
+    width: 33.3%;
+    float: left;
 
-// http://nicolasgallagher.com/micro-clearfix-hack/
-.cf:before,
-.cf:after {
-    content: " ";
-    display: table;
-}
-
-.cf:after {
-    clear: both;
+    img {
+      max-width: 100%;
+    }
+  }
 }
