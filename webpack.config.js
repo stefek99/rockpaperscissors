@@ -2,6 +2,7 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
 	cache: true,
@@ -33,7 +34,10 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: 'src/index.ejs'
 		}),
-		new ExtractTextPlugin("[name].css")
+		new ExtractTextPlugin("[name].css"),
+		new CopyWebpackPlugin([
+			{ from: 'src/img', to: "img"}
+		])
 	],
 	module: {
 		preLoaders: [{
