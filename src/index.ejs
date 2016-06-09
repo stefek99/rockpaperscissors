@@ -9,14 +9,16 @@
 <body ng-app="app" ng-controller="ctrl">
 
 
-  <!-- 
-    pressing new game resets the state
-    and restores "smart defaults" - player against computer
-    the moment we select an option the game starts
-    case with 2 players - there will be keyboard handlers
-  -->
-  <button ng-click="newGame()">new game</button>
-
+  <div class="menu">
+    <button ng-click="newGame()" ng-disabled="state === states.newgame">new game</button>
+    <p ng-show="bothHumans">
+      Human vs Human is not supported <!-- could add keyboard handlers on a computer but would fail on mobile -->
+    </p> 
+    <p ng-show="bothComputers">
+      Computer vs Computer
+      <button ng-click="randomiseWeapons();" ng-disabled="state !== states.newgame">Start the fight</button>
+    </p> 
+  </div>
 
   <div class="cf"></div>
 
@@ -28,12 +30,14 @@
 
     <div class="cf"></div>
 
-    <div class="game-choice" ng-repeat="gameChoice in gameChoices">
-      <h4>{{ gameChoice.name }}</h4>
-      <a href class="weapon" ng-click="select('player1', gameChoice)">
-        <img alt="{{ gameChoice.name }}" ng-src="{{gameChoice.img}}">
+    <div class="weapon" ng-repeat="weapon in weapons">
+      <h4>{{ weapon.name }}</h4>
+      <a href ng-click="chooseWeapon('player1', weapon)" ng-class="{selected: player1weapon === weapon}">
+        <img alt="{{ weapon.name }}" ng-src="{{weapon.img}}">
       </a>
     </div>
+
+    <div class="cf"></div>
   </div>
 
   <div class="player two" ng-class="player2">
@@ -43,10 +47,10 @@
 
     <div class="cf"></div>
 
-    <div class="game-choice" ng-repeat="gameChoice in gameChoices">
-      <h4>{{ gameChoice.name }}</h4>
-      <a href class="weapon" ng-click="select('player2', gameChoice)">
-        <img alt="{{ gameChoice.name }}" ng-src="{{gameChoice.img}}">
+    <div class="weapon" ng-repeat="weapon in weapons">
+      <h4>{{ weapon.name }}</h4>
+      <a href ng-click="chooseWeapon('player2', weapon)" ng-class="{selected: player2weapon === weapon}">
+        <img alt="{{ weapon.name }}" ng-src="{{weapon.img}}">
       </a>
     </div>
   </div>
@@ -57,10 +61,13 @@
 
   <div class="result">
     <h3>Result</h3>
-    <p>Make your choice to start the game</p>
-<!--     <div class="player1">Player 1 won</div>
-    <div class="player2">Player 2 won</div>
-    <div class="draw">It's a draw</div> -->
+    
+    <p>
+      <span ng-show="state === states.newgame">Make your choice to start the game</span>
+      <span ng-show="state === states.player1won">Player 1 won</span>
+      <span ng-show="state === states.player2won">Player 2 won</span>
+      <span ng-show="state === states.draw">It's a draw</span>
+    </p>
   </div>
 
 

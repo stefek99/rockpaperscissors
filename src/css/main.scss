@@ -25,16 +25,18 @@ html {
 
 body {
 
-	h1 {
-		color: white;
-	}
+  font-family: monospace;
 
-  
+  .menu {
+    height: 50px; // as we display different modes (P vs P, C vs C) text changes, keeping height consistent
+  }
+
   .player {
 
     &.computer {
       a {
         cursor: not-allowed;
+        pointer-events: none; 
       }
     }
 
@@ -51,9 +53,18 @@ body {
     }
   }
 
-  .game-choice {
+  // THINK: best strategy for nesting selectors (so the output file is not too large due to repeated selectors) --- I think it is OK, the .player sections deals with layout and computer while .weapon section handles displaying the wepon
+  .weapon {
     width: 33.3%;
     float: left;
+
+    a {
+      display: block; // required so the adding border displays the thing properly
+
+      &.selected {
+        border: 3px solid black;
+      }
+    }
 
     img {
       max-width: 100%;
