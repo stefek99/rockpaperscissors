@@ -35,7 +35,7 @@ const weaponsEXTENDED = [
     name: "rock",
     img: "img/rock.jpg",
     rules: {
-      wins: ["scissors", "spock"],
+      wins: ["scissors", "lizard"],
       loses: ["paper", "spock"]
     }
   },
