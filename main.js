@@ -76,6 +76,7 @@
 	});
 	
 	app.controller('ctrl', ['$scope', 'weapons', 'states', function ($scope, weapons, states) {
+		$scope.showVideo = true;
 	  $scope.weapons = weapons; // making them available in the view
 	  $scope.states = states;
 	
