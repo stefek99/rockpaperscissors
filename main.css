@@ -1,0 +1,40 @@
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table; }
+
+.cf:after {
+  clear: both; }
+
+body {
+  font-family: monospace; }
+  body .menu {
+    height: 50px; }
+  body .player.computer .weapon {
+    pointer-events: none;
+    opacity: 0.7; }
+  @media (min-width: 600px) {
+    body .player {
+      width: 50%;
+      float: left; }
+      body .player.one {
+        padding-right: 10px; }
+      body .player.two {
+        padding-left: 10px; } }
+  body .weapon {
+    width: 33.3%;
+    float: left; }
+    body .weapon a {
+      display: block; }
+      body .weapon a.selected {
+        border: 3px solid black; }
+    body .weapon img {
+      max-width: 100%; }
+
+/*# sourceMappingURL=main.css.map*/
