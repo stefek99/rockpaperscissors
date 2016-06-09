@@ -29,6 +29,28 @@ body {
 		color: white;
 	}
 
+  
+  .player {
+
+    &.computer {
+      a {
+        cursor: not-allowed;
+      }
+    }
+
+    @media (min-width: 600px) {
+      width: 50%;
+      float: left;
+
+      &.one{
+        padding-right: 10px;
+      }
+      &.two {
+        padding-left: 10px;
+      }
+    }
+  }
+
   .game-choice {
     width: 33.3%;
     float: left;

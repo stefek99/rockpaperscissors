@@ -73,4 +73,4 @@ const weaponsEXTENDED = [
   }
 ];
 
-export default weaponsBASIC;
+export default weaponsEXTENDED;

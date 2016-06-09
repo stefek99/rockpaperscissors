@@ -21,6 +21,8 @@ app.constant("gameStates", [
 
 app.controller("ctrl", ["$scope", "gameChoices", function($scope, gameChoices) {
   $scope.gameChoices = gameChoices;
+  $scope.player1 = "human";
+  $scope.player2 = "computer";
 
   $scope.select = function(player, option) {
     console.log(player, option);

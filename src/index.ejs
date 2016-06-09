@@ -17,34 +17,38 @@
   -->
   <button ng-click="newGame()">new game</button>
 
-  <h3>player 1</h3>
-  <label><input type="radio" name="player1" value="human" checked>Human</label>
-  <label><input type="radio" name="player1" value="computer">Computer</label>
 
   <div class="cf"></div>
 
-  <div class="game-choice" ng-repeat="gameChoice in gameChoices">
-    <h4>{{ gameChoice.name }}</h4>
-    <a href ng-click="select('player1', gameChoice)">
-      <img ng-src="{{gameChoice.img}}">
-    </a>
+
+  <div class="player one" ng-class="player1">
+    <h3>Player 1</h3>
+    <label><input type="radio" name="player1" ng-model="player1" value="human">Human</label>
+    <label><input type="radio" name="player1" ng-model="player1" value="computer">Computer</label>
+
+    <div class="cf"></div>
+
+    <div class="game-choice" ng-repeat="gameChoice in gameChoices">
+      <h4>{{ gameChoice.name }}</h4>
+      <a href class="weapon" ng-click="select('player1', gameChoice)">
+        <img alt="{{ gameChoice.name }}" ng-src="{{gameChoice.img}}">
+      </a>
+    </div>
   </div>
 
+  <div class="player two" ng-class="player2">
+    <h3>Player 2</h3>
+    <label><input type="radio" name="player2" ng-model="player2" value="human">Human</label>
+    <label><input type="radio" name="player2" ng-model="player2" value="computer">Computer</label>
 
-  <div class="cf"></div>
+    <div class="cf"></div>
 
-
-  <h3>player 2</h3>
-  <label><input type="radio" name="player2" value="human">Human</label>
-  <label><input type="radio" name="player2" value="computer" checked>Computer</label>
-
-  <div class="cf"></div>
-
-  <div class="game-choice" ng-repeat="gameChoice in gameChoices">
-    <h4>{{ gameChoice.name }}</h4>
-    <a href ng-click="select('player2', gameChoice)">
-      <img ng-src="{{gameChoice.img}}">
-    </a>
+    <div class="game-choice" ng-repeat="gameChoice in gameChoices">
+      <h4>{{ gameChoice.name }}</h4>
+      <a href class="weapon" ng-click="select('player2', gameChoice)">
+        <img alt="{{ gameChoice.name }}" ng-src="{{gameChoice.img}}">
+      </a>
+    </div>
   </div>
 
 
