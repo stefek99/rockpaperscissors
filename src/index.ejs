@@ -12,7 +12,7 @@
   <div class="menu">
     <button ng-click="newGame()" ng-disabled="state === states.newgame">new game</button>
     <p ng-show="bothHumans">
-      Human vs Human is not supported <!-- could add keyboard handlers on a computer but would fail on mobile -->
+      Human vs Human is not supported <!-- THINK: could add keyboard handlers on a computer but would fail on mobile -->
     </p> 
     <p ng-show="bothComputers">
       Computer vs Computer
@@ -53,6 +53,8 @@
         <img alt="{{ weapon.name }}" ng-src="{{weapon.img}}">
       </a>
     </div>
+
+    <div class="cf"></div>
   </div>
 
 

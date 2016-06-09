@@ -34,9 +34,9 @@ body {
   .player {
 
     &.computer {
-      a {
-        cursor: not-allowed;
-        pointer-events: none; 
+      .weapon {
+        pointer-events: none;
+        opacity: 0.7;
       }
     }
 
